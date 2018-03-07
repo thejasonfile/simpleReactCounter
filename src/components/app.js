@@ -10,12 +10,12 @@ class App extends Component {
     this.state = {count: 0};
   }
   render() {
-
+    const { count } = this.state;
     return (
       <div>
-        <Counter count={this.state.count} />
-        <PlusButton count={this.state.count} increaseCount={(count) => this.setState({count})}/>
-        <MinusButton count={this.state.count} decreaseCount={(count) => this.setState({count})}/>
+        <Counter count={count} />
+        <PlusButton count={count} increaseCount={(count) => this.setState(() => ({ count }))}/>
+        <MinusButton count={count} decreaseCount={(count) => this.setState(() => ({ count }))}/>
       </div>
     );
   }
